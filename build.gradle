@@ -55,3 +55,9 @@ task archiveTestsResults(type:Zip){
     destinationDir = file("archive")
     from 'test-results/test/'
 }
+tasks.register ("mike"){
+    print("jeff")
+}
+tasks.register ("larry"){
+    print("larry")
+}

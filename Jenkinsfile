@@ -20,6 +20,11 @@ pipeline {
       steps {
         bat 'gradle sonarqube'
         waitForQualityGate true
+        def qg = waitForQualityGate()
+        if(gq.status != 'OK' ){
+                error "Pipeline aborted due to quality gate failure: ${qg.status}"
+
+        }
       }
     }
 
