@@ -10,5 +10,11 @@ pipeline {
       }
     }
 
+    stage('mail') {
+      steps {
+        mail(subject: 'New build', body: 'A new build is on the way', from: 'hi_benakcha@esi.dz', to: 'hi_benakcha@esi.dz')
+      }
+    }
+
   }
 }
