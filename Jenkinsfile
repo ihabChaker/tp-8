@@ -29,7 +29,7 @@ pipeline {
 
         stage('test reporting') {
           steps {
-            cucumber '**/test/*.class'
+            cucumber 'reports/*.class'
           }
         }
 
