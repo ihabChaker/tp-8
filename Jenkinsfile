@@ -18,12 +18,19 @@ pipeline {
 
     stage('Code Analysis') {
       steps {
-       withSonarQubeEnv('sonarqube') {
+       
               bat 'gradle sonarqube'
-            }
+           
 
             waitForQualityGate true
         
+      }
+    }
+    stage('Quality Gate'){
+      
+        def qg = waitForQualityGate()
+      if(qg.status != 'OK'){
+        error 'error  '
       }
     }
 
