@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+   
     id 'jacoco'
     id 'org.sonarqube' version "3.1.1"
     id 'maven'
@@ -13,15 +14,28 @@ repositories {
     mavenCentral()
 }
 
+
+test.finalizedBy "jacocoTestReport" // report is always generated after tests run
+
+
+
+
+
+
+
 dependencies {
     testImplementation 'io.cucumber:cucumber-java:6.0.0'
     testImplementation 'io.cucumber:cucumber-junit:6.0.0'
     testCompile group: 'junit', name: 'junit', version: '4.12'
-
+//    classpath "gradle.plugin.net.madeng.slack:gradle-slack-plugin:0.0.23"
 
 }
 
+
+
+
 apply plugin: 'maven-publish'
+
 
 publishing {
     repositories {
@@ -40,24 +54,6 @@ publishing {
         }
     }
 }
-task archiveJar(type:Zip){
-    baseName = "archiveJar"
-    destinationDir = file("archive")
-    from  "build/libs/"
-}
-task archiveDoc(type:Zip){
-    baseName = "archiveDoc"
-    destinationDir = file("archive")
-    from  "build/docs/"
-}
-task archiveTestsResults(type:Zip){
-    baseName="archiveTestsResults"
-    destinationDir = file("archive")
-    from 'test-results/test/'
-}
-tasks.register ("mike"){
-    print("jeff")
-}
-tasks.register ("larry"){
-    print("larry")
-}
+
+
+
