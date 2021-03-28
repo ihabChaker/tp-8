@@ -24,17 +24,6 @@ pipeline {
 
       }
     }
-    stage('quality gate'){
-      steps{
- timeout(time:1, unit: 'HOURS'){
-        def qg = waitForQualtiyGate()
-        if(qg.status!="OK"){
-          error "scnjancjsncj"
-        }
-      }
-      }
-     
-    }
 
   }
 }
