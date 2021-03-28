@@ -18,15 +18,10 @@ pipeline {
 
     stage('Code Analysis') {
       steps {
-       
-              bat 'gradle sonarqube'
-           
-
-            waitForQualityGate true
-        
+        bat 'gradle sonarqube'
+        waitForQualityGate true
       }
     }
-   
 
   }
 }
