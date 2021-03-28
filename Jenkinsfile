@@ -26,13 +26,7 @@ pipeline {
         
       }
     }
-    stage('Quality Gate'){
-      
-        def qg = waitForQualityGate()
-      if(qg.status != 'OK'){
-        error 'error  '
-      }
-    }
+   
 
   }
 }
