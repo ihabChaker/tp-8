@@ -17,12 +17,22 @@ pipeline {
     }
 
     stage('Code Analysis') {
-      steps {
-        withSonarQubeEnv('sonarqube') {
-          bat 'gradle sonarqube'
+      parallel {
+        stage('Code Analysis') {
+          steps {
+            withSonarQubeEnv('sonarqube') {
+              bat 'gradle sonarqube'
+            }
+
+          }
         }
 
-        waitForQualityGate true
+        stage('test reporting') {
+          steps {
+            cucumber '**/test/*.class'
+          }
+        }
+
       }
     }
 
