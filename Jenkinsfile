@@ -25,7 +25,6 @@ pipeline {
             }
             waitForQualityGate true
 
-            waitForQualityGate true
           }
         }
 
