@@ -26,10 +26,10 @@ apply plugin: 'maven-publish'
 publishing {
     repositories {
         maven {
-            url 'https://mymavenrepo.com/repo/0RCPxVWvlmJZNbHjIQpx/'
+            url 'https://mymavenrepo.com/repo/bTjlmYgnBbCyXWMLxYz6/'
             credentials {
                 username 'myMavenRepo'
-                password '0000'
+                password 'aaaa0000'
             }
         }
     }
