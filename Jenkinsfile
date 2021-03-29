@@ -36,5 +36,17 @@ pipeline {
       }
     }
 
+    stage('deployement') {
+      steps {
+        bat 'gradle deploy'
+      }
+    }
+
+    stage('Slack notification') {
+      steps {
+        slackSend(baseUrl: 'https://hooks.slack.com/services/', token: 'T01T1LSFUV7/B01SP33499Q/IVdIEMaZJiguOqF8ELgV7t2p')
+      }
+    }
+
   }
 }
